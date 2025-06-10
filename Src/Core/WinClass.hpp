@@ -2,7 +2,7 @@
 
 #include <unordered_map>
 #include "WinDef.hpp"
-#include "StringConvertor.hpp"
+#include "Convertor.hpp"
 
 namespace WinCore::Core
 {
