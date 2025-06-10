@@ -1,0 +1,58 @@
+WinCore/
+├── Core/
+│   ├── Application.h          // Entry point manager, WinMain wrapper
+│   ├── WindowBase.h           // CRTP base for custom windows
+│   ├── WindowClass.h          // Register/unregister WNDCLASS wrapper
+│   ├── WinMessage.h           // Message loop/event pump
+│   ├── WinDef.h               // Constants and flags (WS_*, styles)
+│   └── Platform.h             // Common Win32 definitions & helpers
+│
+├── Utils/
+│   ├── Types.h                // Typedefs: i32, u8, f32, etc.
+│   ├── StringConvert.h        // UTF-8 <-> UTF-16 helpers
+│   ├── ResourceLoader.h       // Load icons, cursors, etc.
+│   ├── ErrorCheck.h           // Win32 error checking macros/logs
+│   └── DebugLogger.h          // Debug console/logging tools
+│
+├── UI/
+│   ├── Widget.h               // Base class for all widgets
+│   ├── Context.h              // Holds global state, theme, etc.
+│
+│   ├── Elements/
+│   │   ├── Text.h
+│   │   ├── Button.h
+│   │   ├── TextBox.h
+│   │   ├── Image.h
+│   │   └── CheckBox.h
+│   │
+│   ├── Layouts/
+│   │   ├── Column.h
+│   │   ├── Row.h
+│   │   ├── Stack.h
+│   │   └── Padding.h
+│   │
+│   ├── Style/
+│   │   ├── Theme.h
+│   │   ├── Style.h
+│   │   └── Font.h
+│   │
+│   ├── Events/
+│   │   ├── InputEvent.h       // Keyboard, mouse, etc.
+│   │   └── EventDispatcher.h  // Dispatch events to widgets
+│   │
+│   ├── Render/
+│   │   ├── Painter.h          // Basic 2D rendering interface
+│   │   ├── Renderer.h         // Direct2D or GDI+ backend
+│   │   └── DrawCommands.h     // Optional retained-mode batching
+│   │
+│   └── Window/
+│       ├── CustomFrame.h      // No caption/titlebar system
+│       └── HostWindow.h       // Hosts widget tree inside a real window
+│
+├── Assets/
+│   └── DefaultTheme.json      // Default style configuration
+│
+├── Entry/
+│   └── main.cpp               // User code that launches the app
+│
+└── CMakeLists.txt             // Build system
