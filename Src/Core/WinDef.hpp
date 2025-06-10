@@ -145,4 +145,52 @@ namespace WinCore::Core
         SystemCursors(SystemCursors&&) = delete;
         SystemCursors& operator=(SystemCursors&&) = delete;
     };
+
+    struct SystemIcons
+    {
+        static constexpr wchar_t* Application = IDI_APPLICATION;          //< The application icon.
+        static constexpr wchar_t* Hand = IDI_HAND;                        //< The hand icon, typically used for error messages.
+        static constexpr wchar_t* Question = IDI_QUESTION;                //< The question icon, typically used for confirmation dialogs.
+        static constexpr wchar_t* Exclamation = IDI_EXCLAMATION;          //< The exclamation icon, typically used for warnings.
+        static constexpr wchar_t* Asterisk = IDI_ASTERISK;                //< The asterisk icon, typically used for informational messages.
+
+        /**
+         * Loads a system icon of the specified type.
+         * @param iconType The type of the icon to load (e.g. IDI_APPLICATION, IDI_HAND, etc.).
+         * @return The handle of the loaded icon.
+         * @throws std::runtime_error If the icon could not be loaded.
+         */
+        static IconHandle LoadSystemIcon(const wchar_t* iconType)
+        {
+            IconHandle iconHandle = LoadIcon(nullptr, iconType);
+            if (!iconHandle)
+                throw std::runtime_error("Failed to load system icon.");
+
+            return iconHandle;
+        }
+
+        /**
+         * Loads a system icon from the given instance.
+         * @param instance The handle of the module to load the icon from.
+         * @param iconType The type of the icon to load (e.g. IDI_APPLICATION, IDI_HAND, etc.).
+         * @return The handle of the loaded icon.
+         * @throws std::runtime_error If the icon could not be loaded.
+         */
+        static IconHandle LoadSystemIcon(HandleInstance instance, const wchar_t* iconType)
+        {
+            IconHandle iconHandle = LoadIcon(instance, iconType);
+            if (!iconHandle)
+                throw std::runtime_error("Failed to load system icon.");
+
+            return iconHandle;
+        }
+
+        SystemIcons() = default;
+        ~SystemIcons() = default;
+
+        SystemIcons(const SystemIcons&) = delete;
+        SystemIcons& operator=(const SystemIcons&) = delete;
+        SystemIcons(SystemIcons&&) = delete;
+        SystemIcons& operator=(SystemIcons&&) = delete;
+    };
 }
