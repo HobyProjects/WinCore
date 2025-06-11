@@ -56,3 +56,17 @@ WinCore/
 │   └── main.cpp               // User code that launches the app
 │
 └── CMakeLists.txt             // Build system
+
+
+
+
+// 01. WinDef
+    -> All Type Defs
+// 02. WinClass
+    -> Register/Unregister WNDCLASS
+    -> WindowClass it self
+// 03. Platform
+    -> MessageBox
+    -> Monitor
+    -> Timer
+    -> COM helpers

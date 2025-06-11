@@ -23,10 +23,17 @@ set(
     WINCORE_HEADERS
         ${CORE_DOR}/WinDef.hpp
         ${CORE_DOR}/WinClass.hpp
-        ${UTILS_DOR}/StringConvertor.hpp
+        ${CORE_DOR}/Platform.hpp
+        ${UTILS_DOR}/Convertor.hpp
 )
 
-add_library(${WIN_CORE_LIBRARY} STATIC ${WINCORE_HEADERS})
+set(
+    WINCORE_SOURCES
+        ${CORE_DOR}/WinClass.cpp
+        ${CORE_DOR}/Platform.cpp
+)
+
+add_library(${WIN_CORE_LIBRARY} STATIC ${WINCORE_HEADERS} ${WINCORE_SOURCES})
 target_include_directories(${WIN_CORE_LIBRARY} PUBLIC ${WINCORE_INCLUDE_DIR})
 add_library(WinCore::WinCore ALIAS ${WIN_CORE_LIBRARY})
 

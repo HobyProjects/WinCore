@@ -5,6 +5,16 @@
 #include "WinDef.hpp"
 #include "WinClass.hpp"
 
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#define NOMINMAX
+
+#undef min
+#undef max
+#undef ERROR
+#undef MessageBox
+
 namespace WinCore::Core
 {
     enum class MessageBoxIcon : uint32_t
@@ -68,30 +78,23 @@ namespace WinCore::Core
     }
 
     /**
-     * @class MsgBox
+     * @class MessageBox
      * @brief Represents a message used for internal communication.
      *
-     * The MsgBox class provides mechanisms for handling messages
+     * The MessageBox class provides mechanisms for handling messages
      * within the system. It is not copyable or movable to ensure
      * message integrity.
      */
-    class MsgBox
-    {
-        /**
-         * [Challenge-Time]
-         * I can not think of a better name for this class.
-         * because MessageBox is already used in the Windows API.
-         * So, any suggestion for a better name is welcome.
-         */
-        
+    class MessageBox
+    { 
         private:
-            MsgBox() = default;  
-            ~MsgBox() = default; 
+            MessageBox() = default;  
+            ~MessageBox() = default; 
 
-            MsgBox(const MsgBox&) = delete;           
-            MsgBox& operator=(const MsgBox&) = delete; 
-            MsgBox(MsgBox&&) = delete;                 
-            MsgBox& operator=(MsgBox&&) = delete;      
+            MessageBox(const MessageBox&) = delete;           
+            MessageBox& operator=(const MessageBox&) = delete; 
+            MessageBox(MessageBox&&) = delete;                 
+            MessageBox& operator=(MessageBox&&) = delete;      
 
         public:
             /**
@@ -207,6 +210,30 @@ namespace WinCore::Core
     class Monitor
     {
         public:
+            /**
+             * @var DefaultRefreshRate
+             * @brief The default refresh rate of a monitor.
+             *
+             * This constant represents the default refresh rate of a monitor.
+             */
+            static constexpr uint32_t DefaultRefreshRate = 60;
+
+            /**
+             * @var DefaultBitsPerPixel
+             * @brief The default color depth of a monitor.
+             *
+             * This constant represents the default color depth of a monitor.
+             */
+            static constexpr uint32_t DefaultBitsPerPixel = 32;
+
+            /**
+             * @var DefaultDPI
+             * @brief The default DPI of a monitor.
+             *
+             * This constant represents the default DPI of a monitor.
+             */
+            static constexpr uint32_t DefaultDPI = 96;
+
             /**
              * @enum DPIAwareness
              * @brief Represents the DPI awareness of a monitor.

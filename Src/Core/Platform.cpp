@@ -10,42 +10,42 @@
 namespace WinCore::Core
 {
 
-    MessageBoxResult MsgBox::Show(const wchar_t * text, const wchar_t * title, MessageBoxIcon icon, MessageBoxButton buttons)
+    MessageBoxResult MessageBox::Show(const wchar_t * text, const wchar_t * title, MessageBoxIcon icon, MessageBoxButton buttons)
     {
         return static_cast<MessageBoxResult>(MessageBoxW(nullptr, text, title, icon | buttons));
     }
 
-    MessageBoxResult MsgBox::Show(const char * text, const char * title, MessageBoxIcon icon, MessageBoxButton buttons)
+    MessageBoxResult MessageBox::Show(const char * text, const char * title, MessageBoxIcon icon, MessageBoxButton buttons)
     {
         return static_cast<MessageBoxResult>(MessageBoxA(nullptr, text, title, icon | buttons));
     }
 
-    MessageBoxResult MsgBox::Show(const std::wstring & text, const std::wstring & title, MessageBoxIcon icon, MessageBoxButton buttons)
+    MessageBoxResult MessageBox::Show(const std::wstring & text, const std::wstring & title, MessageBoxIcon icon, MessageBoxButton buttons)
     {
         return Show(text.c_str(), title.c_str(), icon, buttons);
     }
 
-    MessageBoxResult MsgBox::Show(const std::string & text, const std::string & title, MessageBoxIcon icon, MessageBoxButton buttons)
+    MessageBoxResult MessageBox::Show(const std::string & text, const std::string & title, MessageBoxIcon icon, MessageBoxButton buttons)
     {
         return Show(text.c_str(), title.c_str(), icon, buttons);
     }
 
-    MessageBoxResult MsgBox::Show(WindowHandle windowHandle, const wchar_t * text, const wchar_t * title, MessageBoxIcon icon, MessageBoxButton buttons)
+    MessageBoxResult MessageBox::Show(WindowHandle windowHandle, const wchar_t * text, const wchar_t * title, MessageBoxIcon icon, MessageBoxButton buttons)
     {
         return static_cast<MessageBoxResult>(MessageBoxW(windowHandle, text, title, icon | buttons));
     }
 
-    MessageBoxResult MsgBox::Show(WindowHandle windowHandle, const char * text, const char * title, MessageBoxIcon icon, MessageBoxButton buttons)
+    MessageBoxResult MessageBox::Show(WindowHandle windowHandle, const char * text, const char * title, MessageBoxIcon icon, MessageBoxButton buttons)
     {
         return static_cast<MessageBoxResult>(MessageBoxA(windowHandle, text, title, icon | buttons));
     }
 
-    MessageBoxResult MsgBox::Show(WindowHandle windowHandle, const std::wstring & text, const std::wstring & title, MessageBoxIcon icon, MessageBoxButton buttons)
+    MessageBoxResult MessageBox::Show(WindowHandle windowHandle, const std::wstring & text, const std::wstring & title, MessageBoxIcon icon, MessageBoxButton buttons)
     {
         return Show(windowHandle, text.c_str(), title.c_str(), icon, buttons);
     }
 
-    MessageBoxResult MsgBox::Show(WindowHandle windowHandle, const std::string & text, const std::string & title, MessageBoxIcon icon, MessageBoxButton buttons)
+    MessageBoxResult MessageBox::Show(WindowHandle windowHandle, const std::string & text, const std::string & title, MessageBoxIcon icon, MessageBoxButton buttons)
     {
         return Show(windowHandle, text.c_str(), title.c_str(), icon, buttons);
     }
